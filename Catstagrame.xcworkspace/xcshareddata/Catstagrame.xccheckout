@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>78EC9100-A152-4190-8BB8-3B3ED1D0C3FC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Catstagrame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4AF49D59-EA8D-47B9-8C41-2A8AA1E827F9</key>
+		<string>ssh://github.com/mtitolo/cats.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Catstagrame.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4AF49D59-EA8D-47B9-8C41-2A8AA1E827F9</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/mtitolo/cats.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4AF49D59-EA8D-47B9-8C41-2A8AA1E827F9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4AF49D59-EA8D-47B9-8C41-2A8AA1E827F9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Catstagrame</string>
+		</dict>
+	</array>
+</dict>
+</plist>

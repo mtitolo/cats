@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5EE14835-40A7-45F8-BF8A-65204A607536</string>
+	<string>A3F7ACC5-224D-4A5F-AF2E-823FC474092C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Catstagrame</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -12,11 +12,11 @@
 		<string>ssh://github.com/mtitolo/cats.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Catstagrame.xcworkspace</string>
+	<string>Catstagrame.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8214B6EC-F3DA-4E4E-AB37-78669C435B23</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/mtitolo/cats.git</string>

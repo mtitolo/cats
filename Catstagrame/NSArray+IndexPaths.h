@@ -1,8 +1,8 @@
 //
-//  main.m
+//  NSArray+IndexPaths.h
 //  Catstagrame
 //
-//  Created by Michele Titolo on 6/13/13.
+//  Created by Michele Titolo on 6/29/13.
 //  Copyright (c) 2013 Michele Titolo.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,13 +24,10 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-#import "CGAppDelegate.h"
+@interface NSArray (IndexPaths)
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CGAppDelegate class]));
-    }
-}
++ (NSArray*)arrayOfIndexPathsForRange:(NSRange)range;
+
+@end

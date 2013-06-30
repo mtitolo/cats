@@ -1,8 +1,8 @@
 //
-//  main.m
+//  NSArray+IndexPaths.m
 //  Catstagrame
 //
-//  Created by Michele Titolo on 6/13/13.
+//  Created by Michele Titolo on 6/29/13.
 //  Copyright (c) 2013 Michele Titolo.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,13 +24,19 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "NSArray+IndexPaths.h"
 
-#import "CGAppDelegate.h"
+@implementation NSArray (IndexPaths)
 
-int main(int argc, char * argv[])
++ (NSArray*)arrayOfIndexPathsForRange:(NSRange)range
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CGAppDelegate class]));
+    NSMutableArray* mutablePaths = [NSMutableArray arrayWithCapacity:range.length];
+    
+    for (int i = range.location; i < NSMaxRange(range); i++) {
+        [mutablePaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
     }
+    
+    return [mutablePaths copy];
 }
+
+@end

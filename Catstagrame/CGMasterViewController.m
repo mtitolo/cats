@@ -3,16 +3,42 @@
 //  Catstagrame
 //
 //  Created by Michele Titolo on 6/13/13.
-//  Copyright (c) 2013 Michele Titolo. All rights reserved.
+//  Copyright (c) 2013 Michele Titolo.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 #import "CGMasterViewController.h"
+#import "CGWebService.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "NSArray+IndexPaths.h"
+#import "CGCatPhotoCell.h"
 
-#import "CGDetailViewController.h"
+#define kCellImageViewTag                   20
+#define kLoadMoreContentOffsetDistance      300 * 3
 
-@interface CGMasterViewController () {
-    NSMutableArray *_objects;
-}
+@interface CGMasterViewController ()
+
+@property (strong, nonatomic) NSArray* catPhotos;
+@property (strong, nonatomic) NSNumber* nextMaxID;
+@property (assign, nonatomic) BOOL loadingMore;
+
 @end
 
 @implementation CGMasterViewController
@@ -25,11 +51,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    
+    [self.tableView registerClass:[CGCatPhotoCell class] forCellReuseIdentifier:@"CatCell"];
+    
+    [[CGWebService defaultService] getCatsWithNextMaxID:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        self.catPhotos = JSON[@"data"];
+        self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
+        [self.tableView reloadData];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error getting cat photos: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,14 +69,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (void)loadMore
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.loadingMore = YES;
+    [[CGWebService defaultService] getCatsWithNextMaxID:self.nextMaxID success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        int start = self.catPhotos.count;
+        NSArray* newCats = JSON[@"data"];
+        self.catPhotos = [self.catPhotos arrayByAddingObjectsFromArray:newCats];
+        self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayOfIndexPathsForRange:NSMakeRange(start, newCats.count)] withRowAnimation:UITableViewRowAnimationNone];
+        self.loadingMore = NO;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Error getting cat photos: %@", error);
+        self.loadingMore = NO;
+    }];
 }
 
 #pragma mark - Table View
@@ -57,31 +94,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return self.catPhotos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    CGCatPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatCell" forIndexPath:indexPath];
+    
+    NSDictionary* cellData = self.catPhotos[indexPath.row];
+    
+    NSString* imageURLString = cellData[@"images"][@"standard_resolution"][@"url"];
+    
+    if ([[UIScreen mainScreen] scale] < 2.0) {
+        imageURLString = cellData[@"images"][@"low_resolution"][@"url"];
+    }
+    
+    [cell.catImageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage imageNamed:@"catPlaceholder"]];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    CGFloat loadMoreContentOffset = scrollView.contentSize.height - kLoadMoreContentOffsetDistance;
+    
+    if (!self.loadingMore && scrollView.contentOffset.y >= loadMoreContentOffset) {
+        [self loadMore];
     }
 }
 
@@ -100,14 +138,5 @@
     return YES;
 }
 */
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-}
 
 @end

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		98B2CA35E910462DBECD6CFC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A371C3C330D45ACBCCF8C87 /* libPods.a */; };
+		D94F5BBC177FA93900088775 /* CGCatPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F5BBB177FA93900088775 /* CGCatPhotoCell.m */; };
+		D94F5BBF177FAE6A00088775 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D94F5BBD177FAE6A00088775 /* iTunesArtwork.png */; };
+		D94F5BC0177FAE6A00088775 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D94F5BBE177FAE6A00088775 /* iTunesArtwork@2x.png */; };
+		D94F5BC2177FAF3E00088775 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F5BC1177FAF3E00088775 /* MobileCoreServices.framework */; };
+		D94F5BC4177FAF4A00088775 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F5BC3177FAF4A00088775 /* SystemConfiguration.framework */; };
+		D97E9848177F8AD300C7D137 /* NSArray+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = D97E9847177F8AD300C7D137 /* NSArray+IndexPaths.m */; };
 		D998114417712AB7008BEB1E /* CGWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = D998114317712AB7008BEB1E /* CGWebService.m */; };
 		D9B64294176A2E17003D8169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64293176A2E17003D8169 /* Foundation.framework */; };
 		D9B64296176A2E17003D8169 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64295176A2E17003D8169 /* CoreGraphics.framework */; };
@@ -17,7 +23,6 @@
 		D9B642A4176A2E17003D8169 /* CGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B642A3176A2E17003D8169 /* CGAppDelegate.m */; };
 		D9B642A7176A2E17003D8169 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B642A5176A2E17003D8169 /* Main.storyboard */; };
 		D9B642AA176A2E17003D8169 /* CGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B642A9176A2E17003D8169 /* CGMasterViewController.m */; };
-		D9B642AD176A2E17003D8169 /* CGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B642AC176A2E17003D8169 /* CGDetailViewController.m */; };
 		D9B642AF176A2E17003D8169 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9B642AE176A2E17003D8169 /* Images.xcassets */; };
 		D9B642B6176A2E17003D8169 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B642B5176A2E17003D8169 /* XCTest.framework */; };
 		D9B642B7176A2E17003D8169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64293176A2E17003D8169 /* Foundation.framework */; };
@@ -39,6 +44,14 @@
 /* Begin PBXFileReference section */
 		85D282C3B7B94745BAD892B1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8A371C3C330D45ACBCCF8C87 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D94F5BBA177FA93900088775 /* CGCatPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCatPhotoCell.h; sourceTree = "<group>"; };
+		D94F5BBB177FA93900088775 /* CGCatPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCatPhotoCell.m; sourceTree = "<group>"; };
+		D94F5BBD177FAE6A00088775 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		D94F5BBE177FAE6A00088775 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		D94F5BC1177FAF3E00088775 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D94F5BC3177FAF4A00088775 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D97E9846177F8AD300C7D137 /* NSArray+IndexPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+IndexPaths.h"; sourceTree = "<group>"; };
+		D97E9847177F8AD300C7D137 /* NSArray+IndexPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+IndexPaths.m"; sourceTree = "<group>"; };
 		D998114217712AB7008BEB1E /* CGWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGWebService.h; sourceTree = "<group>"; };
 		D998114317712AB7008BEB1E /* CGWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWebService.m; sourceTree = "<group>"; };
 		D9B64290176A2E17003D8169 /* Catstagrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catstagrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,8 +67,6 @@
 		D9B642A6176A2E17003D8169 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9B642A8176A2E17003D8169 /* CGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGMasterViewController.h; sourceTree = "<group>"; };
 		D9B642A9176A2E17003D8169 /* CGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGMasterViewController.m; sourceTree = "<group>"; };
-		D9B642AB176A2E17003D8169 /* CGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGDetailViewController.h; sourceTree = "<group>"; };
-		D9B642AC176A2E17003D8169 /* CGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGDetailViewController.m; sourceTree = "<group>"; };
 		D9B642AE176A2E17003D8169 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9B642B4176A2E17003D8169 /* CatstagrameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatstagrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B642B5176A2E17003D8169 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -69,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94F5BC4177FAF4A00088775 /* SystemConfiguration.framework in Frameworks */,
+				D94F5BC2177FAF3E00088775 /* MobileCoreServices.framework in Frameworks */,
 				D9B64296176A2E17003D8169 /* CoreGraphics.framework in Frameworks */,
 				D9B64298176A2E17003D8169 /* UIKit.framework in Frameworks */,
 				D9B64294176A2E17003D8169 /* Foundation.framework in Frameworks */,
@@ -112,6 +125,8 @@
 		D9B64292176A2E17003D8169 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D94F5BC3177FAF4A00088775 /* SystemConfiguration.framework */,
+				D94F5BC1177FAF3E00088775 /* MobileCoreServices.framework */,
 				D9B64293176A2E17003D8169 /* Foundation.framework */,
 				D9B64295176A2E17003D8169 /* CoreGraphics.framework */,
 				D9B64297176A2E17003D8169 /* UIKit.framework */,
@@ -129,12 +144,14 @@
 				D9B642A5176A2E17003D8169 /* Main.storyboard */,
 				D9B642A8176A2E17003D8169 /* CGMasterViewController.h */,
 				D9B642A9176A2E17003D8169 /* CGMasterViewController.m */,
-				D9B642AB176A2E17003D8169 /* CGDetailViewController.h */,
-				D9B642AC176A2E17003D8169 /* CGDetailViewController.m */,
+				D94F5BBA177FA93900088775 /* CGCatPhotoCell.h */,
+				D94F5BBB177FA93900088775 /* CGCatPhotoCell.m */,
 				D9B642AE176A2E17003D8169 /* Images.xcassets */,
 				D9B6429A176A2E17003D8169 /* Supporting Files */,
 				D998114217712AB7008BEB1E /* CGWebService.h */,
 				D998114317712AB7008BEB1E /* CGWebService.m */,
+				D97E9846177F8AD300C7D137 /* NSArray+IndexPaths.h */,
+				D97E9847177F8AD300C7D137 /* NSArray+IndexPaths.m */,
 			);
 			path = Catstagrame;
 			sourceTree = "<group>";
@@ -146,6 +163,8 @@
 				D9B6429C176A2E17003D8169 /* InfoPlist.strings */,
 				D9B6429F176A2E17003D8169 /* main.m */,
 				D9B642A1176A2E17003D8169 /* Catstagrame-Prefix.pch */,
+				D94F5BBD177FAE6A00088775 /* iTunesArtwork.png */,
+				D94F5BBE177FAE6A00088775 /* iTunesArtwork@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,6 +199,7 @@
 				D9B6428D176A2E17003D8169 /* Frameworks */,
 				D9B6428E176A2E17003D8169 /* Resources */,
 				291A5E171FA24E5AA4E0C13F /* Copy Pods Resources */,
+				D9847C20177F8CA400C3F95B /* Copy Key */,
 			);
 			buildRules = (
 			);
@@ -248,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B642AF176A2E17003D8169 /* Images.xcassets in Resources */,
+				D94F5BC0177FAE6A00088775 /* iTunesArtwork@2x.png in Resources */,
 				D9B6429E176A2E17003D8169 /* InfoPlist.strings in Resources */,
+				D94F5BBF177FAE6A00088775 /* iTunesArtwork.png in Resources */,
 				D9B642A7176A2E17003D8169 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +314,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
+		D9847C20177F8CA400C3F95B /* Copy Key */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Key";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${SRCROOT}/Catstagrame/key.txt\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,9 +337,10 @@
 			files = (
 				D9B642A4176A2E17003D8169 /* CGAppDelegate.m in Sources */,
 				D998114417712AB7008BEB1E /* CGWebService.m in Sources */,
+				D97E9848177F8AD300C7D137 /* NSArray+IndexPaths.m in Sources */,
 				D9B642A0176A2E17003D8169 /* main.m in Sources */,
 				D9B642AA176A2E17003D8169 /* CGMasterViewController.m in Sources */,
-				D9B642AD176A2E17003D8169 /* CGDetailViewController.m in Sources */,
+				D94F5BBC177FA93900088775 /* CGCatPhotoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,8 @@
 //
-//  main.m
+//  CGCatPhotoCell.h
 //  Catstagrame
 //
-//  Created by Michele Titolo on 6/13/13.
+//  Created by Michele Titolo on 6/29/13.
 //  Copyright (c) 2013 Michele Titolo.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +26,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CGAppDelegate.h"
+@interface CGCatPhotoCell : UITableViewCell
 
-int main(int argc, char * argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CGAppDelegate class]));
-    }
-}
+@property (strong, nonatomic) UIImageView* catImageView;
+
+@end

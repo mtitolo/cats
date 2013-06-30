@@ -3,11 +3,35 @@
 //  Catstagrame
 //
 //  Created by Michele Titolo on 6/18/13.
-//  Copyright (c) 2013 Michele Titolo. All rights reserved.
+//  Copyright (c) 2013 Michele Titolo.
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //
 
 #import "CGWebService.h"
 #import <AFNetworking/AFNetworking.h>
+
+@interface CGWebService ()
+
+@property (strong, nonatomic) NSString* clientID;
+
+@end
 
 @implementation CGWebService
 
@@ -18,9 +42,36 @@
     dispatch_once(&onceToken, ^{
         s_webservice = [[CGWebService alloc] init];
         s_webservice.client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.instagram.com"]];
+        s_webservice.client.parameterEncoding = AFJSONParameterEncoding;
+        [s_webservice.client setDefaultHeader:@"application/json" value:@"Accept"];
+        NSError* error = nil;
+        s_webservice.clientID = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"key" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
+        
+        if (!s_webservice.clientID || s_webservice.clientID.length == 0) {
+            [[NSException exceptionWithName:@"Catstagrame Error" reason:@"Missing Instagram API Key" userInfo:nil] raise];
+        }
     });
     
     return s_webservice;
+}
+
+- (NSOperation*)getCatsWithNextMaxID:(NSNumber *)maxID success:(void (^)(NSURLRequest *, NSHTTPURLResponse *, id))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure
+{
+    NSString* requestURLString = [NSString stringWithFormat:@"/v1/tags/kittens/media/recent?client_id=%@", self.clientID];
+    
+    if (maxID) {
+        requestURLString = [requestURLString stringByAppendingFormat:@"&max_tag_id=%@", maxID];
+    }
+    
+//    NSLog(@"Making request with path: %@", requestURLString);
+    
+    NSMutableURLRequest* request = [self.client requestWithMethod:@"GET" path:requestURLString parameters:nil];
+    
+    AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
+    
+    [self.client enqueueHTTPRequestOperation:operation];
+    
+    return operation;
 }
 
 @end

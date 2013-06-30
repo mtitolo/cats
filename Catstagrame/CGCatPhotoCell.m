@@ -1,8 +1,8 @@
 //
-//  main.m
+//  CGCatPhotoCell.m
 //  Catstagrame
 //
-//  Created by Michele Titolo on 6/13/13.
+//  Created by Michele Titolo on 6/29/13.
 //  Copyright (c) 2013 Michele Titolo.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,13 +24,43 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "CGCatPhotoCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
-#import "CGAppDelegate.h"
+@interface CGCatPhotoCell ()
 
-int main(int argc, char * argv[])
+@end
+
+@implementation CGCatPhotoCell
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CGAppDelegate class]));
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)layoutSubviews
+{
+    if (!self.catImageView) {
+        self.catImageView = [[UIImageView alloc] initWithFrame:CGRectMake(29, 10, 263, 263)];
+        [self.contentView addSubview:self.catImageView];
     }
 }
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+- (void)prepareForReuse
+{
+    [self.catImageView cancelCurrentImageLoad];
+    self.catImageView.image = nil;
+}
+
+@end

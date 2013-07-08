@@ -25,6 +25,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CGWebService.h"
 
 @interface CatstagrameTests : XCTestCase
 
@@ -46,9 +47,22 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testGetCats
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [[CGWebService defaultService] getCatsWithNextMaxID:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        XCTAssertNotNil(JSON, @"Did not get cats");
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        XCTFail(@"Failed to get cats");
+    }];
+}
+
+- (void)testGetNextCats
+{
+    [[CGWebService defaultService] getCatsWithNextMaxID:@1373317731618 success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        XCTAssertNotNil(JSON, @"Did not get next cats");
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        XCTFail(@"Failed to get next cats");
+    }];
 }
 
 @end

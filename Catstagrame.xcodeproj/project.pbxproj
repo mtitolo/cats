@@ -15,6 +15,7 @@
 		D94F5BC4177FAF4A00088775 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94F5BC3177FAF4A00088775 /* SystemConfiguration.framework */; };
 		D97E9848177F8AD300C7D137 /* NSArray+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = D97E9847177F8AD300C7D137 /* NSArray+IndexPaths.m */; };
 		D998114417712AB7008BEB1E /* CGWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = D998114317712AB7008BEB1E /* CGWebService.m */; };
+		D9AC8ACB17876E4E00A2953F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AC8ACA17876E4E00A2953F /* libsqlite3.dylib */; };
 		D9B64294176A2E17003D8169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64293176A2E17003D8169 /* Foundation.framework */; };
 		D9B64296176A2E17003D8169 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64295176A2E17003D8169 /* CoreGraphics.framework */; };
 		D9B64298176A2E17003D8169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64297176A2E17003D8169 /* UIKit.framework */; };
@@ -54,6 +55,7 @@
 		D97E9847177F8AD300C7D137 /* NSArray+IndexPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+IndexPaths.m"; sourceTree = "<group>"; };
 		D998114217712AB7008BEB1E /* CGWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGWebService.h; sourceTree = "<group>"; };
 		D998114317712AB7008BEB1E /* CGWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWebService.m; sourceTree = "<group>"; };
+		D9AC8ACA17876E4E00A2953F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D9B64290176A2E17003D8169 /* Catstagrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catstagrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B64293176A2E17003D8169 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9B64295176A2E17003D8169 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AC8ACB17876E4E00A2953F /* libsqlite3.dylib in Frameworks */,
 				D94F5BC4177FAF4A00088775 /* SystemConfiguration.framework in Frameworks */,
 				D94F5BC2177FAF3E00088775 /* MobileCoreServices.framework in Frameworks */,
 				D9B64296176A2E17003D8169 /* CoreGraphics.framework in Frameworks */,
@@ -125,6 +128,7 @@
 		D9B64292176A2E17003D8169 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9AC8ACA17876E4E00A2953F /* libsqlite3.dylib */,
 				D94F5BC3177FAF4A00088775 /* SystemConfiguration.framework */,
 				D94F5BC1177FAF3E00088775 /* MobileCoreServices.framework */,
 				D9B64293176A2E17003D8169 /* Foundation.framework */,

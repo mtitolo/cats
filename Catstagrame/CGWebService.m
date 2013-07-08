@@ -25,7 +25,7 @@
 //
 
 #import "CGWebService.h"
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface CGWebService ()
 
@@ -48,7 +48,7 @@
         s_webservice.clientID = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"key" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
         
         if (!s_webservice.clientID || s_webservice.clientID.length == 0) {
-            [[NSException exceptionWithName:@"Catstagrame Error" reason:@"Missing Instagram API Key" userInfo:nil] raise];
+            [[NSException exceptionWithName:@"Catstagrame Error" reason:@"Missing Instagram API Key" userInfo:@{@"error":error}] raise];
         }
     });
     
@@ -63,7 +63,7 @@
         requestURLString = [requestURLString stringByAppendingFormat:@"&max_tag_id=%@", maxID];
     }
     
-//    NSLog(@"Making request with path: %@", requestURLString);
+    NSLog(@"Making request with path: %@", requestURLString);
     
     NSMutableURLRequest* request = [self.client requestWithMethod:@"GET" path:requestURLString parameters:nil];
     

@@ -26,6 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @class AFHTTPClient;
 
 @interface CGWebService : NSObject

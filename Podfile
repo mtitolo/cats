@@ -1,3 +1,4 @@
-platform:ios, '5.0'
-pod 'AFNetworking'
+platform :ios, '7.0'
+pod 'AFNetworking', '~>2.0.0-RC1'
 pod 'SDWebImage'
+pod 'HockeySDK'

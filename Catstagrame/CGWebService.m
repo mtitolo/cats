@@ -26,6 +26,7 @@
 
 #import "CGWebService.h"
 #import "AFNetworking.h"
+#import "AFJSONRequestOperation.h"
 
 @interface CGWebService ()
 
@@ -41,9 +42,9 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         s_webservice = [[CGWebService alloc] init];
-        s_webservice.client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.instagram.com"]];
-        s_webservice.client.parameterEncoding = AFJSONParameterEncoding;
-        [s_webservice.client setDefaultHeader:@"application/json" value:@"Accept"];
+        NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        [configuration setHTTPAdditionalHeaders:@{@"Accept": @"application/json"}];
+        s_webservice.client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.instagram.com"] sessionConfiguration:configuration];
         NSError* error = nil;
         s_webservice.clientID = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"key" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
         

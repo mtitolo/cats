@@ -56,7 +56,7 @@
     return s_webservice;
 }
 
-- (NSOperation*)getCatsWithNextMaxID:(NSNumber *)maxID success:(void (^)(NSURLRequest *, NSHTTPURLResponse *, id))success failure:(void (^)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id))failure
+- (NSURLSessionDataTask*)getCatsWithNextMaxID:(NSNumber *)maxID success:(void (^)(NSHTTPURLResponse *, id))success failure:(void (^)(NSError *))failure
 {
     NSString* requestURLString = [NSString stringWithFormat:@"/v1/tags/kittens/media/recent?client_id=%@", self.clientID];
     
@@ -66,13 +66,14 @@
     
     NSLog(@"Making request with path: %@", requestURLString);
     
-    NSMutableURLRequest* request = [self.client requestWithMethod:@"GET" path:requestURLString parameters:nil];
+    NSURLSessionDataTask* task = [self.client GET:requestURLString parameters:nil success:^(NSHTTPURLResponse *response, id responseObject) {
+        success(response, responseObject);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+
     
-    AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
-    
-    [self.client enqueueHTTPRequestOperation:operation];
-    
-    return operation;
+    return task;
 }
 
 @end

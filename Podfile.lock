@@ -21,9 +21,14 @@ PODS:
     - libwebp
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0.0-RC1)
+  - AFNetworking (from `git@github.com:AFNetworking/AFNetworking.git`, commit `6b87fcc65050960e34896beaedaaef6a8aaf266b`)
   - HockeySDK
   - SDWebImage
+
+EXTERNAL SOURCES:
+  AFNetworking:
+    :commit: 6b87fcc65050960e34896beaedaaef6a8aaf266b
+    :git: git@github.com:AFNetworking/AFNetworking.git
 
 SPEC CHECKSUMS:
   AFNetworking: 29456fb87c4a62a5ae1d27baf6771a2cf327089f

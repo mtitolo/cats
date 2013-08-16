@@ -54,11 +54,11 @@
     
     [self.tableView registerClass:[CGCatPhotoCell class] forCellReuseIdentifier:@"CatCell"];
     
-    [[CGWebService defaultService] getCatsWithNextMaxID:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    [[CGWebService defaultService] getCatsWithNextMaxID:nil success:^(NSHTTPURLResponse *response, id JSON) {
         self.catPhotos = JSON[@"data"];
         self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
         [self.tableView reloadData];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    } failure:^(NSError *error) {
         NSLog(@"Error getting cat photos: %@", error);
     }];
 }
@@ -72,14 +72,14 @@
 - (void)loadMore
 {
     self.loadingMore = YES;
-    [[CGWebService defaultService] getCatsWithNextMaxID:self.nextMaxID success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    [[CGWebService defaultService] getCatsWithNextMaxID:self.nextMaxID success:^(NSHTTPURLResponse *response, id JSON) {
         int start = self.catPhotos.count;
         NSArray* newCats = JSON[@"data"];
         self.catPhotos = [self.catPhotos arrayByAddingObjectsFromArray:newCats];
         self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayOfIndexPathsForRange:NSMakeRange(start, newCats.count)] withRowAnimation:UITableViewRowAnimationNone];
         self.loadingMore = NO;
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    } failure:^(NSError *error) {
         NSLog(@"Error getting cat photos: %@", error);
         self.loadingMore = NO;
     }];

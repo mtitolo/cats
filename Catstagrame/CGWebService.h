@@ -35,6 +35,6 @@
 
 + (CGWebService*)defaultService;
 
-- (NSOperation*)getCatsWithNextMaxID:(NSNumber*)maxID success:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
+- (NSURLSessionDataTask*)getCatsWithNextMaxID:(NSNumber*)maxID success:(void(^)(NSHTTPURLResponse *response, id JSON))success failure:(void(^)(NSError *error))failure;
 
 @end

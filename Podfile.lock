@@ -1,10 +1,9 @@
 PODS:
-  - AFNetworking (2.0.0-RC1):
+  - AFNetworking (2.0.0-RC2):
     - AFNetworking/Core
     - AFNetworking/UIKit+AFNetworking
-  - AFNetworking/Core (2.0.0-RC1)
-  - AFNetworking/UIKit+AFNetworking (2.0.0-RC1)
-  - HockeySDK (3.0.0)
+  - AFNetworking/Core (2.0.0-RC2)
+  - AFNetworking/UIKit+AFNetworking (2.0.0-RC2)
   - libwebp (0.3.0-rc7):
     - libwebp/dec
     - libwebp/dsp
@@ -21,18 +20,11 @@ PODS:
     - libwebp
 
 DEPENDENCIES:
-  - AFNetworking (from `git@github.com:AFNetworking/AFNetworking.git`, commit `6b87fcc65050960e34896beaedaaef6a8aaf266b`)
-  - HockeySDK
+  - AFNetworking (= 2.0.0-RC2)
   - SDWebImage
 
-EXTERNAL SOURCES:
-  AFNetworking:
-    :commit: 6b87fcc65050960e34896beaedaaef6a8aaf266b
-    :git: git@github.com:AFNetworking/AFNetworking.git
-
 SPEC CHECKSUMS:
-  AFNetworking: 29456fb87c4a62a5ae1d27baf6771a2cf327089f
-  HockeySDK: 286d86c6e89a35de7f3e4f3c2879a07185ee0918
+  AFNetworking: 6b4bff71172dc36dd93b035c1cb52dd97d7ce428
   libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
   SDWebImage: 79a8bac9ccf85b269100b294f7b43684dab8bf8a
 

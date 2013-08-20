@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "source &quot;$HOME/.rvm/scripts/rvm&quot; &gt; /tmp/output.txt&#10;rvm use ruby-1.9.3-p194 &gt;&gt; /tmp/output.txt&#10;cd ${SRCROOT}&#10;pod install &gt;&gt; /tmp/output.txt"
+               scriptText = "# If you are using RVM, uncomment the `source` and `rvm use` lines.&#10;&#10;# Load RVM, optionally outputting to a file&#10;#source &quot;$HOME/.rvm/scripts/rvm&quot; #&gt; /tmp/output.txt&#10;&#10;# Tell RVM to use the correct ruby version. Change to which version you are using, optionally outputting to a file&#10;#rvm use ruby-1.9.3-p392 #&gt;&gt; /tmp/output.txt&#10;&#10;# Move into our directory, as otherwise we are in the build dir. This is where the Podfile is. The `pod install` command needs to be run from the same folder as your podfile.&#10;cd ${SRCROOT}&#10;&#10;# Run our install command, optionally outputting to a file&#10;pod install #&gt;&gt; /tmp/output.txt"
                shellToInvoke = "/usr/bin/env bash">
                <EnvironmentBuildable>
                   <BuildableReference
@@ -33,7 +33,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "59C345010BC24AABBD0AAC93"
+               BlueprintIdentifier = "D9B1936D6E934F5DA6E5EC0D"
                BuildableName = "libPods.a"
                BlueprintName = "Pods"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

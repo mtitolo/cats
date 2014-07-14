@@ -27,11 +27,11 @@
 #import <Foundation/Foundation.h>
 
 
-@class AFHTTPClient;
+@class AFHTTPSessionManager;
 
 @interface CGWebService : NSObject
 
-@property (strong, nonatomic) AFHTTPClient* client;
+@property (strong, nonatomic) AFHTTPSessionManager* client;
 
 + (CGWebService*)defaultService;
 

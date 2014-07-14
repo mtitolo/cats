@@ -26,8 +26,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CGCatPhotoCell : UITableViewCell
+@interface CGCatPhotoCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView* catImageView;
+@property (strong, nonatomic) IBOutlet UIImageView* catImageView;
 
 @end

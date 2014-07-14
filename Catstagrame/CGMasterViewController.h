@@ -26,6 +26,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CGMasterViewController : UITableViewController
+@interface CGMasterViewController : UICollectionViewController
 
 @end

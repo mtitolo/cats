@@ -33,28 +33,12 @@
 
 @implementation CGCatPhotoCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)layoutSubviews
 {
     if (!self.catImageView) {
         self.catImageView = [[UIImageView alloc] initWithFrame:CGRectMake(29, 10, 263, 263)];
         [self.contentView addSubview:self.catImageView];
     }
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)prepareForReuse

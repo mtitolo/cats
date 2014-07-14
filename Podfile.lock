@@ -1,31 +1,33 @@
 PODS:
-  - AFNetworking (2.0.0-RC2):
-    - AFNetworking/Core
-    - AFNetworking/UIKit+AFNetworking
-  - AFNetworking/Core (2.0.0-RC2)
-  - AFNetworking/UIKit+AFNetworking (2.0.0-RC2)
-  - libwebp (0.3.0-rc7):
-    - libwebp/dec
-    - libwebp/dsp
-    - libwebp/utils
-    - libwebp/webp
-  - libwebp/dec (0.3.0-rc7)
-  - libwebp/dsp (0.3.0-rc7)
-  - libwebp/utils (0.3.0-rc7)
-  - libwebp/webp (0.3.0-rc7)
-  - SDWebImage (3.3):
-    - libwebp
-    - SDWebImage/MapKit
-  - SDWebImage/MapKit (3.3):
-    - libwebp
+  - AFNetworking (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.4):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - SDWebImage (3.6):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.6)
 
 DEPENDENCIES:
-  - AFNetworking (= 2.0.0-RC2)
+  - AFNetworking
   - SDWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 6b4bff71172dc36dd93b035c1cb52dd97d7ce428
-  libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
-  SDWebImage: 79a8bac9ccf85b269100b294f7b43684dab8bf8a
+  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.33.1

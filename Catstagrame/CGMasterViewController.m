@@ -31,7 +31,7 @@
 #import "CGCatPhotoCell.h"
 
 #define kCellImageViewTag                   20
-#define kLoadMoreContentOffsetDistance      300 * 3
+#define kLoadMoreContentOffsetDistance      100 * 3
 
 @interface CGMasterViewController ()
 
@@ -52,12 +52,12 @@
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[CGCatPhotoCell class] forCellReuseIdentifier:@"CatCell"];
+//    [self.collectionView registerClass:[CGCatPhotoCell class] forCellReuseIdentifier:@"CatCell"];
     
     [[CGWebService defaultService] getCatsWithNextMaxID:nil success:^(NSHTTPURLResponse *response, id JSON) {
         self.catPhotos = JSON[@"data"];
         self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
-        [self.tableView reloadData];
+        [self.collectionView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"Error getting cat photos: %@", error);
     }];
@@ -77,7 +77,7 @@
         NSArray* newCats = JSON[@"data"];
         self.catPhotos = [self.catPhotos arrayByAddingObjectsFromArray:newCats];
         self.nextMaxID = JSON[@"pagination"][@"next_max_id"];
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayOfIndexPathsForRange:NSMakeRange(start, newCats.count)] withRowAnimation:UITableViewRowAnimationNone];
+        [self.collectionView insertItemsAtIndexPaths:[NSArray arrayOfIndexPathsForRange:NSMakeRange(start, newCats.count)]];
         self.loadingMore = NO;
     } failure:^(NSError *error) {
         NSLog(@"Error getting cat photos: %@", error);
@@ -87,19 +87,19 @@
 
 #pragma mark - Table View
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.catPhotos.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGCatPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CatCell" forIndexPath:indexPath];
+    CGCatPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CatCell" forIndexPath:indexPath];
     
     NSDictionary* cellData = self.catPhotos[indexPath.row];
     
@@ -109,7 +109,9 @@
         imageURLString = cellData[@"images"][@"low_resolution"][@"url"];
     }
     
-    [cell.catImageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage imageNamed:@"catPlaceholder"]];
+    [cell.catImageView setImageWithURL:[NSURL URLWithString:imageURLString] placeholderImage:[UIImage imageNamed:@"catPlaceholder"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        NSLog(@"-");
+    }];
 
     return cell;
 }

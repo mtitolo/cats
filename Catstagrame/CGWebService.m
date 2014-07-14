@@ -25,8 +25,7 @@
 //
 
 #import "CGWebService.h"
-#import "AFNetworking.h"
-#import "AFJSONRequestOperation.h"
+#import <AFNetworking.h>
 
 @interface CGWebService ()
 
@@ -44,7 +43,7 @@
         s_webservice = [[CGWebService alloc] init];
         NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         [configuration setHTTPAdditionalHeaders:@{@"Accept": @"application/json"}];
-        s_webservice.client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.instagram.com"] sessionConfiguration:configuration];
+        s_webservice.client = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.instagram.com"] sessionConfiguration:configuration];
         NSError* error = nil;
         s_webservice.clientID = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"key" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
         
@@ -58,20 +57,19 @@
 
 - (NSURLSessionDataTask*)getCatsWithNextMaxID:(NSNumber *)maxID success:(void (^)(NSHTTPURLResponse *, id))success failure:(void (^)(NSError *))failure
 {
-    NSString* requestURLString = [NSString stringWithFormat:@"/v1/tags/kittens/media/recent?client_id=%@", self.clientID];
+    NSString* requestURLString = [NSString stringWithFormat:@"/v1/tags/kittens/media/recent?client_id=%@&count=99", self.clientID];
     
     if (maxID) {
         requestURLString = [requestURLString stringByAppendingFormat:@"&max_tag_id=%@", maxID];
     }
     
     NSLog(@"Making request with path: %@", requestURLString);
-    
-    NSURLSessionDataTask* task = [self.client GET:requestURLString parameters:nil success:^(NSHTTPURLResponse *response, id responseObject) {
-        success(response, responseObject);
-    } failure:^(NSError *error) {
+
+    NSURLSessionDataTask* task = [self.client GET:requestURLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        success(task.response, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
-
     
     return task;
 }

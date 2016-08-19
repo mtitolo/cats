@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		98B2CA35E910462DBECD6CFC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A371C3C330D45ACBCCF8C87 /* libPods.a */; };
+		D169A28F1D66C2DE00FD7C56 /* CatstagrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169A28E1D66C2DE00FD7C56 /* CatstagrameTests.swift */; };
 		D94F5BBC177FA93900088775 /* CGCatPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D94F5BBB177FA93900088775 /* CGCatPhotoCell.m */; };
 		D94F5BBF177FAE6A00088775 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = D94F5BBD177FAE6A00088775 /* iTunesArtwork.png */; };
 		D94F5BC0177FAE6A00088775 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D94F5BBE177FAE6A00088775 /* iTunesArtwork@2x.png */; };
@@ -29,7 +30,6 @@
 		D9B642B7176A2E17003D8169 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64293176A2E17003D8169 /* Foundation.framework */; };
 		D9B642B8176A2E17003D8169 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B64297176A2E17003D8169 /* UIKit.framework */; };
 		D9B642C0176A2E17003D8169 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9B642BE176A2E17003D8169 /* InfoPlist.strings */; };
-		D9B642C2176A2E17003D8169 /* CatstagrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B642C1176A2E17003D8169 /* CatstagrameTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,9 @@
 /* Begin PBXFileReference section */
 		85D282C3B7B94745BAD892B1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8A371C3C330D45ACBCCF8C87 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9051BA5178E040E0002C04F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		D169A28D1D66C2DD00FD7C56 /* CatstagrameTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CatstagrameTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D169A28E1D66C2DE00FD7C56 /* CatstagrameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatstagrameTests.swift; sourceTree = "<group>"; };
+		D9051BA5178E040E0002C04F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		D94F5BBA177FA93900088775 /* CGCatPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCatPhotoCell.h; sourceTree = "<group>"; };
 		D94F5BBB177FA93900088775 /* CGCatPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCatPhotoCell.m; sourceTree = "<group>"; };
 		D94F5BBD177FAE6A00088775 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
@@ -75,7 +77,6 @@
 		D9B642B5176A2E17003D8169 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D9B642BD176A2E17003D8169 /* CatstagrameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CatstagrameTests-Info.plist"; sourceTree = "<group>"; };
 		D9B642BF176A2E17003D8169 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D9B642C1176A2E17003D8169 /* CatstagrameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatstagrameTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +179,9 @@
 		D9B642BB176A2E17003D8169 /* CatstagrameTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9B642C1176A2E17003D8169 /* CatstagrameTests.m */,
 				D9B642BC176A2E17003D8169 /* Supporting Files */,
+				D169A28E1D66C2DE00FD7C56 /* CatstagrameTests.swift */,
+				D169A28D1D66C2DD00FD7C56 /* CatstagrameTests-Bridging-Header.h */,
 			);
 			path = CatstagrameTests;
 			sourceTree = "<group>";
@@ -205,7 +207,6 @@
 				D9B6428D176A2E17003D8169 /* Frameworks */,
 				D9B6428E176A2E17003D8169 /* Resources */,
 				291A5E171FA24E5AA4E0C13F /* Copy Pods Resources */,
-				D9847C20177F8CA400C3F95B /* Copy Key */,
 			);
 			buildRules = (
 			);
@@ -241,6 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CG;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Michele Titolo";
 				TargetAttributes = {
@@ -320,20 +322,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 		};
-		D9847C20177F8CA400C3F95B /* Copy Key */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Key";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cp \"${SRCROOT}/Catstagrame/key.txt\" ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B642C2176A2E17003D8169 /* CatstagrameTests.m in Sources */,
+				D169A28F1D66C2DE00FD7C56 /* CatstagrameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +464,7 @@
 				GCC_PREFIX_HEADER = "Catstagrame/Catstagrame-Prefix.pch";
 				INFOPLIST_FILE = "Catstagrame/Catstagrame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -492,6 +481,7 @@
 				GCC_PREFIX_HEADER = "Catstagrame/Catstagrame-Prefix.pch";
 				INFOPLIST_FILE = "Catstagrame/Catstagrame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -500,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Catstagrame.app/Catstagrame";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -512,7 +503,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CatstagrameTests/CatstagrameTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatstagrameTests/CatstagrameTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -522,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Catstagrame.app/Catstagrame";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -530,7 +525,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Catstagrame/Catstagrame-Prefix.pch";
 				INFOPLIST_FILE = "CatstagrameTests/CatstagrameTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CatstagrameTests/CatstagrameTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
